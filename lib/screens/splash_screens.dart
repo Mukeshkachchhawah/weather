@@ -45,7 +45,7 @@ class _SplashScreensState extends State<SplashScreens> {
           mHidght(),
           Center(
               child: Text(
-            "wather App",
+            "weather App",
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ))
         ],
