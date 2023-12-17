@@ -48,7 +48,11 @@ class _HomePageState extends State<HomePage> {
             } else {
               if (snapshot.hasError) {
                 return Center(
-                  child: Text("Inter Net Error"),
+                  child: Text(
+                    /// animation widget us internet error
+                    "Internet Error",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  ),
                 );
               } else if (snapshot.hasData) {
                 return Padding(
@@ -199,7 +203,7 @@ class _HomePageState extends State<HomePage> {
           text,
           style: TextStyle(color: Colors.white),
         ),
-        Text(text1, style: TextStyle(color: Colors.white))
+        Text(text1, style: TextStyle(color: Colors.red))
       ],
     );
   }
@@ -219,11 +223,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  /// get dummy api functoin getData
   Future<DataModals> getData() async {
     Uri mUrl = Uri.parse(
+
+        /// dummy api get url
         "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=9b43443bbc145c7ed11a453adbc249ee");
     var response = await http.get(mUrl);
 
+    /// chack responese code ==200
     if (response.statusCode == 200) {
       var json = jsonDecode(response.body);
       return DataModals.fromJson(json);
