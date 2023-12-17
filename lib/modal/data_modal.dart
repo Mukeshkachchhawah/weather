@@ -1,4 +1,5 @@
 class DataModals {
+  /// api urls fatch data
   Coord? coord;
   List<Weather>? weather;
   String? base;
